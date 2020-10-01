@@ -7,25 +7,15 @@ import (
 )
 
 func main() {
-	// Account
-	// account := accounts.NewAccount("juno")
-	// account.Deposit(10)
-	// fmt.Println(account)
-
 	dictionary := mydict.Dictionary{}
-	word := "hello"
-	definition := "Greeting"
+	baseWord := "hello"
 
-	err := dictionary.Add(word, definition)
+	dictionary.Add(baseWord, "First")
+	dictionary.Search(baseWord)
+	dictionary.Delete(baseWord)
+	word, err := dictionary.Search(baseWord)
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	hello, err := dictionary.Search(word)
-	fmt.Println(hello)
-
-	err2 := dictionary.Add(word, definition)
-	if err2 != nil {
-		fmt.Println(err2)
-	}
+	fmt.Println(word)
 }
